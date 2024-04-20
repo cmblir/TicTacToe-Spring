@@ -1,7 +1,6 @@
 package tictactoe.core.board;
 
 import org.junit.jupiter.api.Assertions;
-import tictactoe.core.board.Board.State;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

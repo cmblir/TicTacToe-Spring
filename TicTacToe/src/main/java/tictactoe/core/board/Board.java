@@ -1,5 +1,6 @@
 package tictactoe.core.board;
 
+import tictactoe.core.board.State;
 import java.util.HashSet;
 
 public class Board {
@@ -19,7 +20,7 @@ public class Board {
         int i;
         for(i = 0; i < 3; ++i) {
             for(int col = 0; col < 3; ++col) {
-                this.board[i][col] = Board.State.Blank;
+                this.board[i][col] = State.Blank;
             }
         }
 
@@ -34,8 +35,8 @@ public class Board {
     public void reset() {
         this.moveCount = 0;
         this.gameOver = false;
-        this.playerTurn = Board.State.X;
-        this.winner = Board.State.Blank;
+        this.playerTurn = State.X;
+        this.winner = State.Blank;
         this.initialize();
     }
 
@@ -46,12 +47,12 @@ public class Board {
     public boolean move(int x, int y) {
         if (this.gameOver) {
             throw new IllegalStateException("틱택토는 끝났습니다. 움직이지 않으면 플레이할 수 있습니다.");
-        } else if (this.board[y][x] == Board.State.Blank) {
+        } else if (this.board[y][x] == State.Blank) {
             this.board[y][x] = this.playerTurn;
             ++this.moveCount;
             this.movesAvailable.remove(y * 3 + x);
             if (this.moveCount == 9) {
-                this.winner = Board.State.Blank;
+                this.winner = State.Blank;
                 this.gameOver = true;
             }
 
@@ -59,7 +60,7 @@ public class Board {
             this.checkCol(x);
             this.checkDiagonalFromTopLeft(x, y);
             this.checkDIagonalFromTopRight(x, y);
-            this.playerTurn = this.playerTurn == Board.State.X ? Board.State.O : Board.State.X;
+            this.playerTurn = this.playerTurn == State.X ? State.O : State.X;
             return true;
         } else {
             return false;
@@ -156,7 +157,7 @@ public class Board {
 
         for(int y = 0; y < 3; ++y) {
             for(int x = 0; x < 3; ++x) {
-                if (this.board[y][x] == Board.State.Blank) {
+                if (this.board[y][x] == State.Blank) {
                     sb.append("-");
                 } else {
                     sb.append(this.board[y][x].name());
@@ -173,12 +174,4 @@ public class Board {
         return new String(sb);
     }
 
-    public static enum State {
-        Blank,
-        X,
-        O;
-
-        private State() {
-        }
-    }
 }

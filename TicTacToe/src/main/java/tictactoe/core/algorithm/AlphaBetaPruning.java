@@ -1,7 +1,7 @@
 package tictactoe.core.algorithm;
 
 import tictactoe.core.board.Board;
-import tictactoe.core.board.Board.State;
+import tictactoe.core.board.State;
 
 import java.util.Iterator;
 

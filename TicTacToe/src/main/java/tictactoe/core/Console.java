@@ -2,7 +2,7 @@ package tictactoe.core;
 
 import tictactoe.core.algorithm.Algorithms;
 import tictactoe.core.board.Board;
-import tictactoe.core.board.Board.State;
+import tictactoe.core.board.State;
 
 import java.util.Scanner;
 
@@ -59,7 +59,7 @@ public class Console {
     }
 
     private void printWinner() {
-        Board.State winner = this.board.getWinner();
+        State winner = this.board.getWinner();
         System.out.println("\n" + String.valueOf(this.board) + "\n");
         if (winner == State.Blank) {
             System.out.println("무승부입니다.");

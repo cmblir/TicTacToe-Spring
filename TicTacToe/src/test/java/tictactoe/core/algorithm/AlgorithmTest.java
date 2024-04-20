@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tictactoe.core.board.Board;
-import tictactoe.core.board.Board.State;
+import tictactoe.core.board.State;
 
 public class AlgorithmTest {
     private Board board;
